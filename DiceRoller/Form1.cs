@@ -18,12 +18,13 @@ namespace DiceRoller
 
         public string sideofdi;
 
+        //Prints "sideofdi" with random number in lbRolls
         private void ARL()
         {
             string i = sideofdi+ "-" + lblOut.Text;
             lbRolls.Items.Insert(0,i);
 
-            
+            //Prevents lbRolls to exceed 8 items
             int x = (lbRolls.Items.Count - 1);
                 if (x > 7)
                 {
@@ -31,10 +32,14 @@ namespace DiceRoller
                 }
         }
 
-        
-
+ 
+        //Declares rnd for a new random number generation
         private Random rnd = new Random();
 
+        //Declares sideofdi to corresponding button
+        //Random number is generated and parameters dictate the min & max
+        //Prints the number to lblOut
+        //Runs the ARL method. This prints the sideofdi and number to lbRolls
         private void btD2_Click(object sender, EventArgs e)
         {
             sideofdi = "D2";
@@ -46,7 +51,7 @@ namespace DiceRoller
         private void btD4_Click(object sender, EventArgs e)
         {
             sideofdi = "D4";
-            int d4 = (int) ((rnd.NextDouble() * 4)+1);
+            int d4 = (int) ((rnd.NextDouble() * 4) + 1);
             lblOut.Text = d4.ToString();
             ARL();
         }
@@ -90,7 +95,7 @@ namespace DiceRoller
             ARL();
         }
 
-
+        //Clears label "Rolls" box
         private void btClear_Click(object sender, EventArgs e)
         {
             lbRolls.Items.Clear();
